@@ -3,7 +3,7 @@ ThisBuild / resolvers ++= Seq(
   Resolver.mavenLocal
 )
 
-name := "Flink Project"
+name := "flink-project"
 
 version := "0.1-SNAPSHOT"
 
@@ -11,11 +11,13 @@ organization := "org.example"
 
 ThisBuild / scalaVersion := "2.12.7"
 
-val flinkVersion = "1.7.0"
+val flinkVersion = "1.15.2"
 
 val flinkDependencies = Seq(
-  "org.apache.flink" %% "flink-scala" % flinkVersion % "provided",
-  "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % "provided")
+  "org.apache.flink" %% "flink-scala" % flinkVersion,
+  "org.apache.flink" %% "flink-streaming-scala" % flinkVersion,
+  "org.apache.flink" % "flink-clients" % flinkVersion,
+)
 
 lazy val root = (project in file(".")).
   settings(
